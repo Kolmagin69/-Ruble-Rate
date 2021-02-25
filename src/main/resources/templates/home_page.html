@@ -9,12 +9,31 @@
 <body >
 
 <div align="center" class="title">
-    <h2>Check course ruble</h2>
+    <h1>Check RUB exchange rate</h1>
 </div>
 <br>
 <div align="center">
-    <h3>RUB / USD exchange rate growth relative to 2021-02-23</h3>
-    <a href="/check?exc_rate=USD&date=2021-02-23" class="double-border-button">Check</a>
+    <form action="#" th:action="@{/check}" th:object="${requestBody}" method="get">
+    <table class="table">
+        <tr>
+            <td>Select Exchange Rate</td>
+            <td>
+                <select class="form" th:field="*{exc_rate}">
+                    <option th:each="rate : ${rates}"
+                            th:value="${rate}"
+                            th:text="${rate.toString}"/>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Select Historical date</td>
+            <td>
+                <input class="form" type="text" size="11" th:value="*{date}" th:field="*{date}"/>
+            </td>
+        </tr>
+    </table>
+    <button class="double-border-button" type="submit">Check</button>
+</form>
 </div>
 <br>
 <div align="center">

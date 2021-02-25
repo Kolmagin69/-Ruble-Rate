@@ -1,4 +1,4 @@
-package com.check.course.ruble.client.api.giphy.com.item;
+package com.check.rate.ruble.client.api.giphy.com.item;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 

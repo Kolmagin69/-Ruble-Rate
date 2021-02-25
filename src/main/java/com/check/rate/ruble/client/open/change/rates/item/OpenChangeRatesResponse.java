@@ -1,4 +1,4 @@
-package com.check.course.ruble.client.open.change.rates.item;
+package com.check.rate.ruble.client.open.change.rates.item;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 

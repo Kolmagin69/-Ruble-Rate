@@ -1,4 +1,4 @@
-package com.check.course.ruble.client.open.change.rates.item;
+package com.check.rate.ruble.client.open.change.rates.item;
 
 public enum ExchangeRate {
 
@@ -14,8 +14,8 @@ public enum ExchangeRate {
     NPR,    NZD,    OMR,    PAB,    PEN,    PGK,    PHP,    PKR,    PLN,    PYG,    QAR,    RON,
     RSD,    RUB,    RWF,    SAR,    SBD,    SCR,    SDG,    SEK,    SGD,    SHP,    SLL,    SOS,
     SRD,    SSP,    STD,    STN,    SVC,    SYP,    SZL,    THB,    TJS,    TMT,    TND,    TOP,
-    TRY,    TTD,    TWD,    TZS,    UAH,    UGX,    USD,    UYU,    UZS,    VES,    VND,    VUV,
-    WST,    XAF,    XAG,    XAU,    XCD,    XDR,    XOF,    XPD,    XPF,    XPT,    YER,    ZAR,
-    ZMW,    ZWL
+    TRY,    TTD,    TWD,    TZS,    UAH,    UGX,    USD,    UYU,    UZS,    VEF,    VES,    VND,
+    VUV,    WST,    XAF,    XAG,    XAU,    XCD,    XDR,    XOF,    XPD,    XPF,    XPT,    YER,
+    ZAR,    ZMW,    ZWL
 
 }

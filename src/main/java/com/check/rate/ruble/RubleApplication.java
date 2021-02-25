@@ -1,4 +1,4 @@
-package com.check.course.ruble;
+package com.check.rate.ruble;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

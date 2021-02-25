@@ -2,7 +2,7 @@
 
 * {
     	font-family: 'Dosis', sans-serif;
-    	transition: all 1s ease;
+    	transition: all 0.5s ease;
     	color: #f1c40f;
     }
 
@@ -10,13 +10,16 @@ body {
         background: #1b2631;
 }
 .double-border-button{
+   background: #1b2631;
   text-decoration: none;
+  font-size: 18.72px;
+  font-weight: bolder;
   display: inline-block;
   margin: 10px 20px;
   padding: 10px 30px;
   position: relative;
   border: 2px solid #f1c40f;
-  color: #f1c40f;
+  color: orange;
 }
 .double-border-button:after {
   content: "";
@@ -39,4 +42,21 @@ body {
 img {
     border: 3px solid #f1c40f;
     color: #f1c40f;
+  }
+  .form {
+    border: 2px solid #f1c40f;
+    height: 28px;
+    text-align: center;
+    font-size: 18.72px;
+    font-weight: bolder;
+    background: #1b2631;
+    color: orange;
+  }
+  .table {
+    text-align: center;
+        font-size: 18.72px;
+        font-weight: bolder;
+  }
+  .error {
+  color: red;
   }

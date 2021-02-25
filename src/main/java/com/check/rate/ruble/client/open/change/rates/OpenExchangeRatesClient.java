@@ -1,6 +1,6 @@
-package com.check.course.ruble.client.open.change.rates;
+package com.check.rate.ruble.client.open.change.rates;
 
-import com.check.course.ruble.client.open.change.rates.item.OpenChangeRatesResponse;
+import com.check.rate.ruble.client.open.change.rates.item.OpenChangeRatesResponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;

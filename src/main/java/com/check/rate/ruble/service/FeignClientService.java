@@ -1,10 +1,10 @@
-package com.check.course.ruble.service;
+package com.check.rate.ruble.service;
 
-import com.check.course.ruble.client.api.giphy.com.ApiGiphyComClient;
-import com.check.course.ruble.client.api.giphy.com.item.ApiGiphyComResponse;
-import com.check.course.ruble.client.open.change.rates.OpenExchangeRatesClient;
-import com.check.course.ruble.client.open.change.rates.item.ExchangeRate;
-import com.check.course.ruble.client.open.change.rates.item.OpenChangeRatesResponse;
+import com.check.rate.ruble.client.api.giphy.com.ApiGiphyComClient;
+import com.check.rate.ruble.client.api.giphy.com.item.ApiGiphyComResponse;
+import com.check.rate.ruble.client.open.change.rates.OpenExchangeRatesClient;
+import com.check.rate.ruble.client.open.change.rates.item.ExchangeRate;
+import com.check.rate.ruble.client.open.change.rates.item.OpenChangeRatesResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
@@ -34,11 +34,13 @@ public class FeignClientService {
 
     @Value("${api.giphy.com.rating}") String rating;
 
-    public String checkRubleRateAndGetGif(final ExchangeRate compareWith, final String historicalDate) {
+    public String checkRubleRateAndGetGif(final ExchangeRate compareWith, final String historicalDate)
+            throws IllegalArgumentException{
         if(compareWith == null || historicalDate == null)
             throw new IllegalArgumentException("You must declare ExchangeRate:compareWith, String:historicalDate");
         if(!isValidStringDate(historicalDate))
-            throw new IllegalArgumentException("Invalid date");
+            throw new IllegalArgumentException("Invalid date. Format YYYY-MM-DD and date must be before " +
+                    LocalDate.now().toString());
 
         final OpenChangeRatesResponse openChangeRatesResponse = openExchangeRatesClient.getLatestRates(appId);
         final Map<ExchangeRate, Double> latestRate = openChangeRatesResponse.getRates();

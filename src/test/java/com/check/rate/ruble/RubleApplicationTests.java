@@ -1,4 +1,4 @@
-package com.check.course.ruble;
+package com.check.rate.ruble;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

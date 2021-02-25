@@ -1,6 +1,6 @@
-package com.check.course.ruble.client.api.giphy.com;
+package com.check.rate.ruble.client.api.giphy.com;
 
-import com.check.course.ruble.client.api.giphy.com.item.ApiGiphyComResponse;
+import com.check.rate.ruble.client.api.giphy.com.item.ApiGiphyComResponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
