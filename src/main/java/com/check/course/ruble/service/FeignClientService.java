@@ -74,9 +74,9 @@ public class FeignClientService {
         final double comparedLatestRate = latestRate.get(compareWith);
         final double comparedHistoricalRate = historicalRate.get(compareWith);
 
-        final double changesRubleRate = rubleHistoricalRate / rubleLatestRate;
-        final double changesComparedRate = comparedHistoricalRate / comparedLatestRate;
-        return changesRubleRate > changesComparedRate;
+        final double rubleRateRelationComparedRateHistorical = rubleHistoricalRate / comparedHistoricalRate;
+        final double rubleRateRelationComparedRateLatest = rubleLatestRate / comparedLatestRate;
+        return rubleRateRelationComparedRateHistorical < rubleRateRelationComparedRateLatest;
     }
 
     private String getUrlFromResponse(final ApiGiphyComResponse apiGiphyComResponse) {
