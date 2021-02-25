@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>Check course</title>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+</head>
+<body >
+
+<div align="center" class="title">
+    <h2>Check course ruble</h2>
+</div>
+<br>
+<div align="center">
+    <h3>RUB / USD exchange rate growth relative to 2021-02-23</h3>
+    <a href="/check?exc_rate=USD&date=2021-02-23" class="double-border-button">Check</a>
+</div>
+<br>
+<div align="center">
+    <img th:src ="${giphyUrl}" alt = "gif" height="200"/>
+</div>
+
+</body>
+</html>
