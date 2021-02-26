@@ -44,11 +44,11 @@ public class FeignClientService {
                     LocalDate.now().toString());
 
         final OpenChangeRatesResponse openChangeRatesResponse = openExchangeRatesClient.getLatestRates(appId);
-        final Map<ExchangeRate, Double> latestRate = openChangeRatesResponse.getRates();
+        final Map<ExchangeRate, Double> latestRate = openChangeRatesResponse.getActualRates();
 
         final Map<ExchangeRate, Double> historicalRate = openExchangeRatesClient
                 .getHistoricalRates(historicalDate,appId)
-                .getRates();
+                .getActualRates();
 
         if(isRubleRateIncreased(latestRate, historicalRate, compareWith))
             return getUrlFromResponse(apiGiphyComClient.getRandomGiphy(apiKey,tagRich,rating));

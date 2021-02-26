@@ -12,7 +12,7 @@ public class OpenChangeRatesResponse {
 
     private String base;
 
-    private Map<ExchangeRate, Double> rates;
+    private Map<String, Double> rates;
 
     public long getTimestamp() {
         return timestamp;
@@ -30,11 +30,25 @@ public class OpenChangeRatesResponse {
         this.base = base;
     }
 
-    public Map<ExchangeRate, Double> getRates() {
+    public Map<String, Double> getRates() {
         return rates;
     }
 
-    public void setRates(HashMap<ExchangeRate, Double> rates) {
+    public void setRates(HashMap<String, Double> rates) {
         this.rates = rates;
+    }
+
+    public Map<ExchangeRate, Double> getActualRates() {
+        if (rates == null)
+            return null;
+        final Map<ExchangeRate, Double> actualRates = new HashMap<>();
+        for (Map.Entry<String, Double> entry : rates.entrySet()) {
+            try {
+                actualRates.put(ExchangeRate.valueOf(entry.getKey()), entry.getValue());
+            } catch (IllegalArgumentException e){
+
+            }
+        }
+        return actualRates;
     }
 }
