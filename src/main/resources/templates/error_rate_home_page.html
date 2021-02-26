@@ -24,13 +24,13 @@
                                         th:text="${rate.toString()}"/>
                             </select>
                         </td>
+                        <td class="error">Currency exchange rate not supported / wasn't supported</td>
                     </tr>
                     <tr>
                         <td>Select Historical date</td>
                         <td>
                             <input class="form" type="text" size="11" th:value="*{date}" th:field="*{date}"/>
                         </td>
-                        <td class="error">  YYYY-MM-DD</td>
                     </tr>
                 </table>
                 <button class="double-border-button" type="submit">Check</button>

@@ -5,6 +5,7 @@ import com.check.rate.ruble.client.api.giphy.com.item.ApiGiphyComResponse;
 import com.check.rate.ruble.client.open.change.rates.OpenExchangeRatesClient;
 import com.check.rate.ruble.client.open.change.rates.item.ExchangeRate;
 import com.check.rate.ruble.client.open.change.rates.item.OpenChangeRatesResponse;
+import com.check.rate.ruble.exception.RateNotSupportedException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
@@ -73,8 +74,15 @@ public class FeignClientService {
         if (compareWith == ExchangeRate.USD) {
             return rubleHistoricalRate > rubleLatestRate;
         }
-        final double comparedLatestRate = latestRate.get(compareWith);
-        final double comparedHistoricalRate = historicalRate.get(compareWith);
+        double comparedLatestRate, comparedHistoricalRate;
+        try {
+            comparedLatestRate = latestRate.get(compareWith);
+            comparedHistoricalRate = historicalRate.get(compareWith);
+        } catch (NullPointerException e) {
+            throw new RateNotSupportedException("Currency exchange rate not supported / wasn`t supported ");
+        }
+
+
 
         final double rubleRateRelationComparedRateHistorical = rubleHistoricalRate / comparedHistoricalRate;
         final double rubleRateRelationComparedRateLatest = rubleLatestRate / comparedLatestRate;

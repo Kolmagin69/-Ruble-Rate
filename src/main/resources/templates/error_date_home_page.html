@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8"/>
+        <title>Product Manager</title>
+        <link rel="stylesheet" type="text/css" href="style.css"/>
+
+    </head>
+    <body>
+        <div align="center" class="title">
+            <h1>Check RUB exchange rate</h1>
+        </div>
+        <br>
+        <div align="center">
+            <form action="#" th:action="@{/check}" th:object="${requestBody}" method="get">
+                <table class="table">
+                    <tr>
+                        <td>Select Exchange Rate</td>
+                        <td>
+                            <select class="form" th:field="*{exc_rate}">
+                                <option th:each="rate : ${rates}"
+                                        th:value="${rate}"
+                                        th:text="${rate.toString()}"/>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Select Historical date</td>
+                        <td>
+                            <input class="form" type="text" size="11" th:value="*{date}" th:field="*{date}"/>
+                        </td>
+                        <td class="error">YYYY-MM-DD / Before today</td>
+                    </tr>
+                </table>
+                <button class="double-border-button" type="submit">Check</button>
+            </form>
+        </div>
+    </body>
+</html>

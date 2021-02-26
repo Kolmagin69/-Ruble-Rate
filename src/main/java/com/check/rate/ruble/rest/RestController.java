@@ -1,6 +1,7 @@
 package com.check.rate.ruble.rest;
 
 import com.check.rate.ruble.client.open.change.rates.item.ExchangeRate;
+import com.check.rate.ruble.exception.RateNotSupportedException;
 import com.check.rate.ruble.rest.item.CheckCourseRequestBody;
 import com.check.rate.ruble.service.FeignClientService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,7 +38,11 @@ public class RestController {
         } catch (IllegalArgumentException e){
             model.addAttribute("rates", rates);
             model.addAttribute("requestBody", requestBody);
-            return "error_home_page";
+            return "error_date_home_page";
+        } catch (RateNotSupportedException e) {
+            model.addAttribute("rates", rates);
+            model.addAttribute("requestBody", requestBody);
+            return "error_rate_home_page";
         }
         model.addAttribute("giphyUrl", giphyUrl);
         model.addAttribute("rates", rates);
