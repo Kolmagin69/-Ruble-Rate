@@ -63,6 +63,8 @@ public class FeignClientService {
             return false;
         }
         LocalDate currentLocalDate = LocalDate.now();
+        if(localDateHistorical.isBefore(LocalDate.of(1999, 2, 1)))
+            return false;
         return !currentLocalDate.isBefore(localDateHistorical);
     }
 
