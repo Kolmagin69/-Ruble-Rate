@@ -21,10 +21,11 @@
                 <select class="form" th:field="*{exc_rate}">
                     <option th:each="rate : ${rates}"
                             th:value="${rate}"
-                            th:text="${rate.toString}"/>
+                            th:text="${rate}"/>
                 </select>
             </td>
         </tr>
+        <tr><td>|</td><td>|</td></tr>
         <tr>
             <td>Select Historical date</td>
             <td>
