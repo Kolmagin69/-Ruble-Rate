@@ -45,9 +45,7 @@ public class OpenChangeRatesResponse {
         for (Map.Entry<String, Double> entry : rates.entrySet()) {
             try {
                 actualRates.put(ExchangeRate.valueOf(entry.getKey()), entry.getValue());
-            } catch (IllegalArgumentException e){
-
-            }
+            } catch (IllegalArgumentException e){}
         }
         return actualRates;
     }

@@ -13,7 +13,7 @@
         </div>
         <br>
         <div align="center">
-            <form action="#" th:action="@{/check}" th:object="${requestBody}" method="get">
+            <form action="#" th:action="@{/rub/check}" th:object="${requestBody}" method="get">
                 <table class="table">
                     <tr>
                         <td>Select Exchange Rate</td>
@@ -32,7 +32,7 @@
                     <tr>
                         <td>Select Historical date</td>
                         <td>
-                            <input class="form" type="text" size="11" th:value="*{date}" th:field="*{date}"/>
+                            <input class="form" type="text" size="13" th:value="*{date}" th:field="*{date}"/>
                         </td>
                     </tr>
                 </table>

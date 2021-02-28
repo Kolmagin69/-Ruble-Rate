@@ -5,7 +5,8 @@ import com.check.rate.ruble.client.api.giphy.com.item.ApiGiphyComResponse;
 import com.check.rate.ruble.client.open.change.rates.OpenExchangeRatesClient;
 import com.check.rate.ruble.client.open.change.rates.item.ExchangeRate;
 import com.check.rate.ruble.client.open.change.rates.item.OpenChangeRatesResponse;
-import com.check.rate.ruble.exception.RateNotSupportedException;
+import com.check.rate.ruble.exceptions.DateFormatException;
+import com.check.rate.ruble.exceptions.RateNotSupportedException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
@@ -36,12 +37,14 @@ public class FeignClientService {
     @Value("${api.giphy.com.rating}") String rating;
 
     public String checkRubleRateAndGetGif(final ExchangeRate compareWith, final String historicalDate)
-            throws IllegalArgumentException{
-        if(compareWith == null || historicalDate == null)
-            throw new IllegalArgumentException("You must declare ExchangeRate:compareWith, String:historicalDate");
+            throws IllegalArgumentException, RateNotSupportedException {
+        if(historicalDate == null)
+            throw new DateFormatException("Date is NULL");
         if(!isValidStringDate(historicalDate))
-            throw new IllegalArgumentException("Invalid date. Format YYYY-MM-DD and date must be before " +
+            throw new DateFormatException("Invalid date value. Format: YYYY-MM-DD and must be before: " +
                     LocalDate.now().toString());
+        if(compareWith == null)
+            throw new RateNotSupportedException("ExchangeRate is NULL");
 
         final OpenChangeRatesResponse openChangeRatesResponse = openExchangeRatesClient.getLatestRates(appId);
         final Map<ExchangeRate, Double> latestRate = openChangeRatesResponse.getActualRates();
