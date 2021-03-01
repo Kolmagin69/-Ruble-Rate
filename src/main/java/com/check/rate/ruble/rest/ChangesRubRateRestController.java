@@ -8,9 +8,9 @@ import com.check.rate.ruble.service.FeignClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.Arrays;
 import java.util.List;
@@ -22,7 +22,7 @@ public class ChangesRubRateRestController {
     @Autowired
     private FeignClientService clientService;
 
-    @GetMapping("/home")
+    @RequestMapping(value = "/home", method = RequestMethod.GET)
     public String firstPage(final Model model) {
         final CheckCourseRequestBody requestBody = new CheckCourseRequestBody();
         model.addAttribute("requestBody", requestBody.getDefault());
@@ -31,7 +31,7 @@ public class ChangesRubRateRestController {
         return "first_page";
     }
 
-    @GetMapping("/check")
+    @RequestMapping(value = "/check", method = RequestMethod.GET)
     public String checkExchangeRate(final Model model, @ModelAttribute("requestBody") CheckCourseRequestBody requestBody) {
         String giphyUrl;
         final List<ExchangeRate> rates = Arrays.asList(ExchangeRate.values());
