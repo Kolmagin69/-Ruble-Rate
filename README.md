@@ -67,7 +67,7 @@ Host: localhost:8080
 ````
 2. ***GET*** запрос с параметрами к ***localhost:8080/rub/check***
 ````
-GET rub/check?exc_rate=usd&data=2020-01-05 HTTP/1.1
+GET rub/check?exc_rate=usd&date=2020-01-05 HTTP/1.1
 Host: localhost:8080
 ````
  >"exc_rate=" валюта относительной которой проверяем рост
